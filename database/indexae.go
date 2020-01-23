@@ -135,9 +135,7 @@ func searchAE(c context.Context, q string) ([]Package, error) {
 		return nil, err
 	}
 	var pkgs []Package
-	opt := &search.SearchOptions{
-		Limit: 100,
-	}
+	opt := &search.SearchOptions{}
 	for it := index.Search(c, parseQuery2(q), opt); ; {
 		var p Package
 		_, err := it.Next(&p)
